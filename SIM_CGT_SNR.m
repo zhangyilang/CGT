@@ -29,14 +29,14 @@ Y_thres = 500;          % Thresholding for RT-PCR
 fields  = {'name','type','func','color','linestyle','marker','markerSize'};
 
 methods = {
-    'CGT, $c=1$', 1, @(y,Psi)MOLS_cK(y,Psi,1,K,eps,S), 'k', '-', 's', 5;...
-    'CGT-Bin, $c=1$', 2, @(y_bin,Psi)MOLS_cK(y_bin,Psi,1,K,eps,S), 'k', '-', 'none', 5;...
-    'CGT, $c=2$', 1, @(y,Psi)MOLS_cK(y,Psi,2,K,eps,S), 'b', '-', 'o', 6;...
-    'CGT-Bin, $c=2$', 2, @(y_bin,Psi)MOLS_cK(y_bin,Psi,2,K,eps,S), 'b', '--', 'none', 5;...
-    'CGT, $c=4$', 1, @(y,Psi)MOLS_cK(y,Psi,4,K,eps,S), 'r', '-', '+', 5;...
-    'CGT-Bin, $c=4$', 2, @(y_bin,Psi)MOLS_cK(y_bin,Psi,4,K,eps,S), 'r', ':', 'none', 5;...
-    'CGT, $c=8$', 1, @(y,Psi)MOLS_cK(y,Psi,8,K,eps,S), [0,0.6,0.6], '-', '^', 4;...
-    'CGT-Bin, $c=8$', 2, @(y_bin,Psi)MOLS_cK(y_bin,Psi,8,K,eps,S), [0,0.6,0.6], '-.', 'none', 5;...
+    'CGT, c=1', 1, @(y,Psi)MOLS_cK(y,Psi,1,K,eps,S), 'k', '-', 's', 5;...
+    'CGT-Bin, c=1', 2, @(y_bin,Psi)MOLS_cK(y_bin,Psi,1,K,eps,S), 'k', '-', 'none', 5;...
+    'CGT, c=2', 1, @(y,Psi)MOLS_cK(y,Psi,2,K,eps,S), 'b', '-', 'o', 6;...
+    'CGT-Bin, c=2', 2, @(y_bin,Psi)MOLS_cK(y_bin,Psi,2,K,eps,S), 'b', '--', 'none', 5;...
+    'CGT, c=4', 1, @(y,Psi)MOLS_cK(y,Psi,4,K,eps,S), 'r', '-', '+', 5;...
+    'CGT-Bin, c=4', 2, @(y_bin,Psi)MOLS_cK(y_bin,Psi,4,K,eps,S), 'r', ':', 'none', 5;...
+    'CGT, c=8', 1, @(y,Psi)MOLS_cK(y,Psi,8,K,eps,S), [0,0.6,0.6], '-', '^', 4;...
+    'CGT-Bin, c=8', 2, @(y_bin,Psi)MOLS_cK(y_bin,Psi,8,K,eps,S), [0,0.6,0.6], '-.', 'none', 5;...
     };
 
 methods     = cell2struct(methods,fields,2);
@@ -119,6 +119,7 @@ end
 
 figure(1);
 save('fig_SNR.mat','precision','recall')
+% load('fig_SNR.mat','precision','recall')
 
 subplot(1,2,1)
 hold on
@@ -130,11 +131,11 @@ for idx_method = 1:num_method
         'Color',tmp_method.color,'LineStyle',tmp_method.linestyle,'Marker',tmp_method.marker,...
         'linewidth',1,'MarkerSize',tmp_method.markerSize,'MarkerIndices',1:5:size(smooth,2))
 end
-xlabel('SNR (dB)','Interpreter','latex')
-ylabel('Precision','Interpreter','latex')
+xlabel('SNR (dB)')
+ylabel('Precision')
 ylim([0,0.6])
-% legend(methods.name,'Location','southeast','Interpreter','latex')
-set(gca,'Fontname','times new Roman');
+% legend(methods.name,'Location','southeast')
+set(gca,'Fontname','Helvetica');
 axis square
 
 subplot(1,2,2)
@@ -147,9 +148,9 @@ for idx_method = 1:num_method
         'Color',tmp_method.color,'LineStyle',tmp_method.linestyle,'Marker',tmp_method.marker,...
         'linewidth',1,'MarkerSize',tmp_method.markerSize,'MarkerIndices',1:5:size(smooth,2))
 end
-xlabel('SNR (dB)','Interpreter','latex')
-ylabel('Recall','Interpreter','latex')
+xlabel('SNR (dB)')
+ylabel('Recall')
 ylim([0.8,1])
-legend(methods.name,'Location','southeast','Interpreter','latex')
-set(gca,'Fontname','times new Roman');
+legend(methods.name,'Location','southeast')
+set(gca,'Fontname','Helvetica');
 axis square

@@ -27,14 +27,14 @@ X_sigma = log10(10^3)/3;
 fields  = {'name','type','func','color','linestyle','marker'};
 
 methods = {
-    'CGT, $c=1$', 1, @(y,psi,k)MOLS_cK(y,psi,1,k,eps,S), 'k', '-', '+';...
-    'CGT-Bin, $c=1$', 2, @(y_bin,psi,k)MOLS_cK(y_bin,psi,1,k,eps,S), 'k', '-', 'o';...
-    'CGT, $c=2$', 1, @(y,psi,k)MOLS_cK(y,psi,2,k,eps,S), 'b', '-', 'x';...
-    'CGT-Bin, $c=2$', 2, @(y_bin,psi,k)MOLS_cK(y_bin,psi,2,k,eps,S), 'b', '--', 'd';...
-    'CGT, $c=4$', 1, @(y,psi,k)MOLS_cK(y,psi,4,k,eps,S), 'r', '-', 's';...
-    'CGT-Bin, $c=4$', 2, @(y_bin,psi,k)MOLS_cK(y_bin,psi,4,k,eps,S), 'r', ':', '^';...
-    'CGT, $c=8$)', 1, @(y,Psi,k)MOLS_cK(y,Psi,8,k,eps,S), [0,0.6,0.6], '-', 'h';...
-    'CGT-Bin, $c=8$', 2, @(y_bin,Psi,k)MOLS_cK(y_bin,Psi,8,k,eps,S), [0,0.6,0.6], '-.', '>';...
+    'CGT, c=1', 1, @(y,psi,k)MOLS_cK(y,psi,1,k,eps,S), 'k', '-', '+';...
+    'CGT-Bin, c=1', 2, @(y_bin,psi,k)MOLS_cK(y_bin,psi,1,k,eps,S), 'k', '-', 'o';...
+    'CGT, c=2', 1, @(y,psi,k)MOLS_cK(y,psi,2,k,eps,S), 'b', '-', 'x';...
+    'CGT-Bin, c=2', 2, @(y_bin,psi,k)MOLS_cK(y_bin,psi,2,k,eps,S), 'b', '--', 'd';...
+    'CGT, c=4', 1, @(y,psi,k)MOLS_cK(y,psi,4,k,eps,S), 'r', '-', 's';...
+    'CGT-Bin, c=4', 2, @(y_bin,psi,k)MOLS_cK(y_bin,psi,4,k,eps,S), 'r', ':', '^';...
+    'CGT, c=8', 1, @(y,Psi,k)MOLS_cK(y,Psi,8,k,eps,S), [0,0.6,0.6], '-', 'h';...
+    'CGT-Bin, c=8', 2, @(y_bin,Psi,k)MOLS_cK(y_bin,Psi,8,k,eps,S), [0,0.6,0.6], '-.', '>';...
     };
 
 methods     = cell2struct(methods,fields,2);
@@ -113,6 +113,8 @@ end
 
 figure(1);
 save('fig_compression.mat','precision','recall')
+% load('fig_compression.mat','precision','recall')
+
 subplot(1,2,1)
 hold on
 for idx_method = 1:num_method
@@ -123,11 +125,11 @@ for idx_method = 1:num_method
         'Color',tmp_method.color,'LineStyle',tmp_method.linestyle,'Marker',tmp_method.marker,...
         'linewidth',1,'MarkerSize',5,'MarkerIndices',1:5:size(smooth,2))
 end
-xlabel('Compression ratio $n/m$','Interpreter','latex')
-ylabel('Precision','Interpreter','latex')
+xlabel('Compression ratio n/m')
+ylabel('Precision')
 axis([5,45,0,0.6])
-% legend(methods.name,'Location','southeast','Interpreter','latex')
-set(gca,'Fontname','times new Roman');
+% legend(methods.name,'Location','southeast')
+set(gca,'Fontname','Helvetica');
 axis square
 
 subplot(1,2,2)
@@ -140,9 +142,9 @@ for idx_method = 1:num_method
         'Color',tmp_method.color,'LineStyle',tmp_method.linestyle,'Marker',tmp_method.marker,...
         'linewidth',1,'MarkerSize',5,'MarkerIndices',1:5:size(smooth,2))
 end
-xlabel('Compression ratio $n/m$','Interpreter','latex')
-ylabel('Recall','Interpreter','latex')
+xlabel('Compression ratio n/m')
+ylabel('Recall')
 axis([5,45,0.7,1])
-legend(methods.name,'Location','southeast','Interpreter','latex')
-set(gca,'Fontname','times new Roman');
+% legend(methods.name,'Location','southeast')
+set(gca,'Fontname','Helvetica');
 axis square
