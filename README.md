@@ -3,7 +3,7 @@
 This repository provides code for Compressed Group Testing (CGT) algorithm. The corresponding paper is 'Compressed group test of Coronavirus with expedited RNA detection in large sample mixtures'.
 
 ## Note
-All the codes run successfully on matlab 2019a. It is unclear whether earlier versions of maltab are supported.
+All the codes run successfully on matlab R2019a. It is unclear whether earlier versions of maltab are supported.
 
 ## Demos
 
