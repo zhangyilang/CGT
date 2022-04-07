@@ -7,10 +7,10 @@ All the codes run successfully on matlab R2019a.
 
 ## Demos
 
-To obtain the performance on SNR, run **SIM_CGT_SNR.m**.
+To obtain the performance on SNR, run ``SIM_CGT_SNR.m``.
 
-To obtain the performance on infection rate, run **SIM_CGT_infection_rate.m**.
+To obtain the performance on infection rate, run ``SIM_CGT_infection_rate.m``.
 
-To obtain the performance on compression ratio, run **SIM_CGT_compression_ratio.m**.
+To obtain the performance on compression ratio, run ``SIM_CGT_compression_ratio.m``.
 
 The specific parameters are remarked in each file in detail. You can also freely modify the parameters to review the performance of the CGT algorithm in different settings.
