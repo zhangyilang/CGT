@@ -3,7 +3,8 @@
 This repository provides code for Compressed Group Testing (CGT) algorithm. The corresponding paper is 'Compressed group test of Coronavirus with expedited RNA detection in large sample mixtures'.
 
 ## Note
-All the codes run successfully on matlab R2019a. 
+All the codes run successfully on matlab R2019a.<br>
+The real medical data used in the paper and the corresponding random mixing matrix can be found in the ``data`` folder.
 
 ## Demos
 
@@ -14,3 +15,4 @@ To obtain the performance on infection rate, run ``SIM_CGT_infection_rate.m``.
 To obtain the performance on compression ratio, run ``SIM_CGT_compression_ratio.m``.
 
 The specific parameters are remarked in each file in detail. You can also freely modify the parameters to review the performance of the CGT algorithm in different settings.
+
